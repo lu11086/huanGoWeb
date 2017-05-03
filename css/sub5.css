@@ -1,0 +1,110 @@
+body{
+	font-family: "微软雅黑";
+	font-size: 1.1rem;
+}
+
+.iconfont{
+	font-size: 24px;
+}
+
+.mui-popup-button{
+	color: #2ac4bb;
+}
+
+.mui-pull-left{
+	color: white;
+}
+
+.mui-table-view-cell:after{
+	left: 0;
+}
+
+.mui-content>.mui-table-view:first-child{
+	margin: 0;
+}
+
+.mui-bar{
+	background: #4ccfc7;
+}
+
+.mui-bar h1{
+	color: white;
+}
+
+.img{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	float: left;
+	overflow: hidden;
+}
+
+.img img{
+	height: 3rem;
+}
+
+.aa{
+	float: left;
+	margin-left: 0.625rem;
+	padding-top: 0.4rem;
+}
+.ziti{
+	color:#2C2B2B;
+	font-size:0.95rem;
+}
+.xiaoziti{
+	color:grey;
+	font-size:0.8rem;
+}
+.wode{
+	font-size:1rem;
+}
+
+.mui-table-view-cell{
+	color: #2c2b2b;
+}
+
+.button{
+    width:100%;
+	background: #4ccfc7;
+	border: transparent;
+	color:white;
+}
+
+.my-subimt{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.mui-btn-quit{
+	font-size: 1rem;
+}
+
+.mui-switch {
+    width: 50px;
+    height: 25px;
+	background: #f0efec;
+}
+
+.mui-switch .mui-switch-handle{
+    width: 23px;
+    height: 23px;
+	background: #f0efec;
+}
+
+.mui-switch:before {
+    font-size: 13px;
+    position: absolute;
+    top: 3px;
+    right: 11px;
+    content: '';
+    text-transform: uppercase;
+    color: #999;
+}
+
+.mui-switch.mui-active:before {
+    right: auto;
+    left: 15px;
+    content: '';
+    color: #fff;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/sub5child.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title mui-bar-title">换go账户注册</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group ff">
+				<div class="mui-input-row">
+					<span class="mui-icon mui-icon-person mui-login"></span>
+					<span class="zhanghu">账户</span>
+					<input type="text" class="mui-input-clear" id="userID" placeholder="手机号/邮箱">
+				</div>
+				<div class="mui-input-row">
+					<span class="mui-icon mui-icon-locked mui-login"></span>
+					<span class="zhanghu">密码</span>
+					<input type="password" class="mui-input-password" id="userPass" placeholder="请输入密码">
+				</div>
+				<div class="mui-input-row">
+					<span class="mui-icon mui-icon-locked mui-login"></span>
+					<span class="zhanghu">确认密码</span>
+					<input type="password" class="mui-input-password" id="AreYouSure" placeholder="请输入密码">
+				</div>
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-primary mui-btn-login" id="register">注册</button>
+				</div>
+
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		changeBarHeight();
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+
+		var userID = myPassword = rePassword = '';
+		document.getElementById("register").addEventListener("tap", function() {
+			userID = document.getElementById("userID").value;
+			myPassword = document.getElementById("userPass").value;
+			rePassword = document.getElementById("AreYouSure").value;
+			/*+++重复名的判定+++*/
+			var myLocalUsers = getLocalUser();
+			if(userID == '') {
+				mui.toast('用户名不能为空！')
+			} else if(myPassword == '' && rePassword == '') {
+				mui.toast('密码不能为空！')
+			} else if(myPassword != rePassword) {
+				mui.toast('两次密码不一致！请检查后输入')
+			} else {
+				var userInfor = {
+					"userID": userID,
+					"myPassword": myPassword,
+					"userName": "点击此处输入昵称",
+					"userImg": "img/my.png",
+					"userAddress": "",
+					"userShortAdd": "点击此处设置详细信息",
+					"userSex": "点击此处设置性别",
+					"fabuInfor": "",
+					"HistoryInfor": "",
+					"collectInfor": ""
+				};
+				myLocalUsers[userID] = userInfor;
+				mui.toast('注册成功！');
+				localStorage.setItem("localUser", JSON.stringify(myLocalUsers));
+				mui.back();
+			}
+		});
+
+		function getLocalUser() {
+			var myLocalUser = localStorage.getItem("localUser");
+			if(!myLocalUser) {
+				myLocalUser = {};
+				localStorage.setItem("localUser", JSON.stringify(myLocalUser));
+				return myLocalUser;
+			} else {
+				return JSON.parse(myLocalUser);
+			}
+		}
+	</script>
+
+</html>

@@ -1,0 +1,167 @@
+body{
+	background-color: white;
+}
+
+.mui-content{
+	text-align: center;	
+}
+
+.mui-content .mui-row{	
+	text-align: center;
+	background-color: white;
+}
+
+.mui-fenleilan{
+	text-align: center;
+	padding: 5px 10px;
+}
+
+.mui-fenleilan span{
+	font-size: 0.9rem;
+}
+
+.logo img{
+	width: 70%;
+}
+
+.mui-icon-star{
+	font-size: 1rem;
+	float: right;
+}
+.bland{
+	height: 0.8rem;
+	background-color: #F0EFEC;
+}
+
+.projectList{
+	background: white;
+	padding: 0 5%;
+}
+
+.listbland{
+	height: 0.5rem;
+}
+
+.myproject{
+	display: none;
+	float: left;
+	overflow: hidden;
+	position: relative;
+	margin: 0 1.25%;
+	margin-bottom: 1rem;
+}
+
+.myproject img{
+	width: 100%;
+	height: auto;
+}
+
+.listbland2{
+	float: left;
+	width: 5%;
+	height: 5rem;
+}
+
+.name{ 
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-size: 0.75rem;
+	background-color: #564F40;
+	opacity: 0.7;
+	color: white;
+	padding: 0 0.5rem;
+}
+
+.left{
+	float: left;
+}
+.right{
+	float:right;
+}
+
+.clear{
+	clear: left;
+	clear: right;
+}
+
+
+
+/*sub2-list      层叠样式表*/
+
+.mui-contentc{
+	width: 100%;
+	margin: auto;
+	padding: 0 1%;
+	background: white;
+	padding-top: 1rem;
+}
+
+.list_C{
+	margin: 0 3%;
+}
+.list_title{
+	border-bottom: 1px solid #C9C7C7;
+	padding:0.2rem 0.4rem;
+	text-align: center;
+}
+.list_div , .list_div_right{
+	position: relative;
+	height: 7rem;
+	background-color: #D9ECEB;
+	margin-bottom: 5rem;
+}
+.list_L , .list_R{
+	width: 38%;	
+	padding: 0.4rem;
+}
+.list_div:after{
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 1.25rem;
+	border-right: 0.92rem solid;
+	border-right-color: #D9ECEB;
+	top: 0.38rem;
+	left: 91%;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(-45deg);
+}
+.list_C{
+	width: 14%;
+}
+.list_pic img{
+	width: 100%;
+	height: 4.5rem;
+	padding: 0.4rem;
+}
+.list_div_right:after{
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 1.25rem;
+	border-right: 0.94rem solid;
+	border-right-color: #D9ECEB;
+	top: 0.5rem;
+	left: -3%;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	
+}
+
+.list_time{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.625rem;
+	background-color: #27938C;
+	text-align: center;
+	color: white;
+	font-size: 0.9rem;
+	padding: 0.3rem;
+}
+
+.list_line{
+	height: 3rem;
+	width: 50%;
+	border-right: 0.18rem solid #C9C7C7;
+}

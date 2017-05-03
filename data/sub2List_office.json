@@ -1,0 +1,33 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"leftList": [
+		{
+			"fenleiName": "笔具",
+			"imgUrl": "img/pen2.jpg"
+		}, {
+			"fenleiName": "文件夹",
+			"imgUrl": "img/yanweijia.jpg"
+		}
+	],
+	"rightList": [
+		{
+			"fenleiName": "资料夹",
+			"imgUrl": "img/wenjianjia.jpg"
+		}, {
+			"fenleiName": "资料袋",
+			"imgUrl": "img/wenjiandai.jpg"
+		}
+	],
+	"theTime": [
+		{
+			"fenxiangTime": "12:30 发布"
+		},{
+			"fenxiangTime": "11:25 发布"
+		},{
+			"fenxiangTime": "15:35 发布"
+		},{
+			"fenxiangTime": "06:55 发布"
+		}
+	]
+}

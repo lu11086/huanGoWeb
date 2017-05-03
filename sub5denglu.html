@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/sub5child.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title mui-bar-title">换go账户登录</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group ff">
+				<div class="mui-input-row">
+					<span class="mui-icon mui-icon-person mui-login"></span>
+					<span class="zhanghu">账户</span>
+					<input type="text" class="mui-input-clear" id="myUserID" placeholder="手机号/邮箱">
+				</div>
+				<div class="mui-input-row">
+					<span class="mui-icon mui-icon-locked mui-login"></span>
+					<span class="zhanghu">密码</span>
+					<input type="password" class="mui-input-password" id="myPassword" placeholder="请输入密码">
+				</div>
+				<div class="mui-button-row">
+					<button type="button" class="mui-btn mui-btn-primary mui-btn-login" id="loginNow">登录</button>
+				</div>
+				<div class="cc">
+					<div class="dd">忘记密码?</div>
+					<div class="ee" id="resgiter">立即注册</div>
+					<div class="clearfloat">
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		changeBarHeight();
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+
+		var myUserID = myPassword = '';
+		document.getElementById("loginNow").addEventListener("tap", function() {
+			myUserID = document.getElementById("myUserID").value;
+			myPassword = document.getElementById("myPassword").value;
+
+			if(myUserID == '') {
+				mui.toast("请输入用户名")
+			} else if(myPassword == '') {
+				mui.toast("请输入密码")
+			} else {
+				mui.getJSON("data/adminUser.json", function(data) {
+					var flag = true;
+					if(!data[myUserID]) {
+						flag = false;
+						var myLocalUser = JSON.parse(localStorage.getItem("localUser"));
+						for(i in myLocalUser) {
+							if(i == myUserID) {
+								data[myUserID] = myLocalUser[myUserID];
+								flag = true;
+							}
+						}
+					};
+					if(flag == false) {
+						mui.toast("该用户名不存在！请检查后再输入")
+					} else {
+						var getMyPassword = data[myUserID].myPassword;
+						if(myPassword == getMyPassword) {
+							var myLoginInfor = myUserID;
+							localStorage.setItem("ifLogined", JSON.stringify(myLoginInfor));
+							var main = plus.webview.getWebviewById('sub5.html');
+							mui.fire(main, "pageflowrefresh");
+							mui.back();
+							mui.toast("登录成功！");
+						} else {
+							mui.toast("用户名或密码错误！请检查后再输入");
+						}
+					}
+				});
+			}
+		})
+
+		mui.plusReady(function() {
+			var myfontsize = document.documentElement.style.fontSize;
+			document.getElementById('resgiter').addEventListener("tap", function(e) {
+				mui.openWindow({
+					url: "sub5zhuce.html",
+					id: "sub5zhuce.html",
+					extras: {
+						fontsize: myfontsize
+					}
+				});
+			})
+		})
+	</script>
+
+</html>

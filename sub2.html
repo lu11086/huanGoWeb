@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/sub2.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/vue2.js"></script>
+		<script>
+			mui.plusReady(function() {
+				var wid = plus.webview.currentWebview();
+				var theWidth = wid.documentWidth;
+				var style = document.createElement('style');
+				style.innerHTML = '.myproject{display:block;width:' + theWidth * 0.4485 + 'px;height:' + theWidth * 0.4485 * 0.625 + 'px;}';
+				document.getElementsByTagName('head').item(0).appendChild(style);
+			})
+		</script>
+	</head>
+
+	<body>
+		
+		<div class="mui-content" id="myContent">
+			<div class="mui-row">
+				<div class="mui-col-sm-3 mui-col-xs-3 mui-fenleilan" v-for="el in fenleilist">
+					<a :title="el.fenleiName" :name="el.whichLei" style="display:block;color:black">
+						<div class="logo">
+							<img :src="el.imgUrl" />
+						</div>
+						<span v-text="el.fenleiName"></span>
+					</a>
+				</div>
+			</div>
+
+			<div class="bland"></div>
+			<div class="projectList">
+				<div class="listbland"></div>
+				<div style="margin: 0 -2.5%;" id="myProjectList">
+					<a class="myproject" v-for="el in localPro" :title="el.localNum">
+						<img :src="el.proImg[0].imgUrl" class="myProImg" />
+						<div class="name">
+							<div class="left" v-text="el.proName"></div>
+							<div class="right">
+								<span v-text="el.proWatched"></span>
+								<span class="mui-icon mui-icon-star"></span>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</a>
+					<a class="myproject" v-for="el in prolist" :title="el.projectID">
+						<img :src="el.ImgUrl" class="myProImg" />
+						<div class="name">
+							<div class="left" v-text="el.ProName"></div>
+							<div class="right">
+								<span v-text="el.ProNum"></span>
+								<span class="mui-icon mui-icon-star"></span>
+							</div>
+							<div class="clear"></div>
+						</div>
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '#myContent',
+				data: {
+					fenleilist: [],
+					prolist: [],
+					getLocalPro: [],
+					localPro: [],
+					getLocalProNew: [],
+					localProNew: []
+				}
+			});
+
+			mui.ajax({
+				url: "data/sub2fenleiList.json",
+				dataType: "json",
+				success: function(data) {
+					vm.fenleilist = data.fenleiList;
+					vm.prolist = data.proList;
+					var projectObj = getMyProject();
+					for(i in projectObj) {
+						vm.getLocalPro.push(projectObj[i])
+					};
+					for(var i = vm.getLocalPro.length - 1; i >= 0; i--) {
+						vm.localPro.push(vm.getLocalPro[i])
+					}
+					//console.log(JSON.stringify(projectObj));
+				}
+			});
+
+			mui.init({
+				pullRefresh: {
+					container: "#myContent",
+					down: {
+						contentdown: "下拉可以刷新",
+						contentover: "释放立即刷新",
+						contentrefresh: "正在刷新",
+						callback: pulldownRefresh
+					}
+				}
+			});
+
+			function pulldownRefresh() {
+				setTimeout(function() {
+					location.reload();
+					mui.ajax({
+						url: "data/sub2fenleiList.json",
+						dataType: "json",
+						success: function(data) {
+							var projectObj = getMyProject();
+							for(i in projectObj) {
+								vm.getLocalProNew.push(projectObj[i])
+							};
+							for(var i = vm.getLocalPro.length - 1; i >= 0; i--) {
+								vm.localProNew.push(vm.getLocalProNew[i])
+							};
+							if(vm.fenleilist == data.fenleiList && vm.prolist == data.proList && vm.localProNew == vm.localPro) {
+								mui.toast('没有更多新数据了')
+							};
+						}
+					});
+					mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+				}, 1000)
+			}
+
+			mui.plusReady(function() {
+				var myfontsize = document.documentElement.style.fontSize;
+				/*首页返回键处理*/
+				var  first  =  null;              
+				plus.key.addEventListener('backbutton',  function() {                 
+					if(!first) {                      
+						first  =  new Date().getTime();                      
+						mui.toast('再按一次退出应用');                      
+						setTimeout(function() {                          
+							first  =  null;                      
+						}, 2000);                  
+					} 
+					else  {                      
+						if(new  Date().getTime()  -  first  <  2000) {                          
+							plus.runtime.quit();                      
+						}                  
+					}              
+				},  false);
+
+				mui(".projectList").on("tap", "a", function(e) {
+					var projectID = this.title;
+					mui.openWindow({
+						url: "projectDetail.html",
+						id: "projectDetail.html",
+						extras: {
+							myID: projectID,
+							fontsize: myfontsize
+						}
+					});
+				})
+
+				mui(".mui-row").on("tap", "a", function(e) {
+					var tleName = this.title;
+					var leiName = this.name;
+					mui.openWindow({
+						url: "sub2_list.html",
+						id: "sub2_list.html",
+						extras: {
+							title: tleName,
+							name: leiName,
+							fontsize: myfontsize
+						}
+					});
+				})
+			})
+
+			function getMyProject() {
+				var myProject = localStorage.getItem("myProObjs");
+				return JSON.parse(myProject);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/sub5loginedTab2-4.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav fabu_mui_nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title fabu_mui_title ">已发布的宝贝</h1>
+		</header>
+		<div class="mui-content fabu_bc" id="myContent">
+			<div class="fabu_List" v-for="el in proInfor">
+				<li class="myFaBu" :title="el.proID">
+					<div class="fabu_left">
+						<img :src="el.proImg" />
+					</div>
+					<div class="fabu_right">
+						<p class="fabu_title" v-text="el.proName"></p>
+						<p class="fabu_content" v-text="el.userWord"></p>
+						</span>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<div class="scrollTab">
+					<div class="mui-row">
+						<a class="mui-col-sm-4 mui-col-xs-4 mui-row-cell scrollTab1" :title="el.proID">
+							<span>修改信息</span>
+						</a>
+						<a class="mui-col-sm-4 mui-col-xs-4 mui-row-cell scrollTab2" :title="el.proID">
+							<span>分享到圈</span>
+						</a>
+						<a class="mui-col-sm-4 mui-col-xs-4 mui-row-cell scrollTab3" :title="el.proID">
+							<span>取消发布</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</body>
+	<script type="text/javascript" src="js/vue2.js"></script>
+	<script type="text/javascript">
+		changeBarHeight();
+		mui.init({
+			gestureConfig: {
+				longtap: true
+			}
+		})
+
+		var ifLongTap = false;
+
+		var vm = new Vue({
+			el: '#myContent',
+			data: {
+				proInfor: [],
+				userInfor: []
+			}
+		});
+
+		mui.plusReady(function() {
+			window.addEventListener("pageflowrefresh", function(e) {
+				location.reload();
+			});
+			var myfontsize = document.documentElement.style.fontSize;
+			var myLoginInfor = JSON.parse(localStorage.getItem("ifLogined"));
+			mui.getJSON("data/adminUser.json", function(data) {
+				if(!data[myLoginInfor]) {
+					var myLocalUser = JSON.parse(localStorage.getItem("localUser"));
+					data[myLoginInfor] = myLocalUser[myLoginInfor];
+				};
+				var myProList = data[myLoginInfor].fabuInfor;
+				mui.getJSON("data/allTheProject.json", function(dataPro) {
+					for(var i = 0; i < myProList.length; i++) {
+						if(!dataPro[myProList[i].projectID]) {
+							var myLocalPro = JSON.parse(localStorage.getItem("myProObjs"));
+							dataPro[myProList[i].projectID] = myLocalPro[myProList[i].projectID];
+						}
+						var projectid = JSON.parse(JSON.stringify(myProList[i].projectID));
+						vm.proInfor.push({
+							'proID': projectid,
+							'proName': dataPro[projectid].proName,
+							'proImg': dataPro[projectid].proImg[0].imgUrl,
+							'userWord': dataPro[projectid].userWord
+						});
+					};
+					vm.$nextTick(function() {
+						var strCon = document.getElementsByClassName('fabu_content');
+						for(var i = 0; i < strCon.length; i++) {
+							var text = strCon[i].innerHTML;
+							var s = cutString(text, 50);
+							strCon[i].innerHTML = s;
+						}
+
+						var strTit = document.getElementsByClassName('fabu_title');
+						for(var i = 0; i < strTit.length; i++) {
+							var text = strTit[i].innerHTML;
+							var s = cutString(text, 30);
+							strTit[i].innerHTML = s;
+						}
+
+						/*下拉小菜单*/
+						if(!ifLongTap) {
+							mui('.fabu_bc').on('longtap', 'li', function(event) {
+								this.parentNode.style.height = '8.5rem';
+								if(navigator.vibrate) {
+									navigator.vibrate(100);
+								} else if(navigator.webkitVibrate) {
+									navigator.webkitVibrate(100);
+								} else if(navigator.mozVibrate) {
+									navigator.mozVibrate(100);
+								} else if(navigator.msVibrate) {
+									navigator.msVibrate(100);
+								}
+								ifLongTap = true;
+							});
+						}
+
+						mui(".fabu_bc").on("tap", ".scrollTab1", function() {
+							var projectID = this.title;
+							var changeProject = plus.webview.getWebviewById('sub3.html');
+							mui.fire(changeProject, "changeMyProject", {
+								myid: projectID
+							});
+							mui.openWindow({
+								url: "sub3.html",
+								id: "sub3.html"
+							});
+						})
+
+						mui(".fabu_bc").on("tap", ".scrollTab2", function() {
+
+						})
+
+						mui(".fabu_bc").on("tap", ".scrollTab3", function() {
+							var projectid = this.title;
+							var ifLogined = localStorage.getItem("ifLogined");
+							if(ifLogined == '"admin"') {
+								mui.toast("超级管理员用户无取消发布功能，请更换账户");
+							} else {
+								var myLoginInfor = JSON.parse(localStorage.getItem("ifLogined"));
+								mui.getJSON("data/adminUser.json", function(data) {
+									if(!data[myLoginInfor]) {
+										var myLocalUser = JSON.parse(localStorage.getItem("localUser"));
+										data[myLoginInfor] = myLocalUser[myLoginInfor];
+									}
+									vm.userInfor = data[myLoginInfor];
+									var newLocalUser = JSON.parse(localStorage.getItem("localUser"));
+									var proList = {
+										"fabuInfor": []
+									};
+									for(i in vm.userInfor.fabuInfor) {
+										if(vm.userInfor.fabuInfor[i].projectID != projectid) {
+											proList.fabuInfor.push({
+												"projectID": vm.userInfor.fabuInfor[i].projectID
+											});
+										}
+									}
+									Vue.set(vm.userInfor, 'fabuInfor', proList.fabuInfor);
+									newLocalUser[myLoginInfor] = vm.userInfor;
+									localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+
+									var myLocalPro = JSON.parse(localStorage.getItem("myProObjs"));
+									localStorage.removeItem("myProObjs");
+									var myProjectObj = {};
+									localStorage.setItem("myProObjs", JSON.stringify(myProjectObj));
+									var myProList = JSON.parse(localStorage.getItem("myProObjs"));
+									for(i in myLocalPro) {
+										if(i != projectid) {
+											myProList[i] = myLocalPro[i];
+											localStorage.setItem("myProObjs", JSON.stringify(myProList));
+										}
+									}
+
+									mui.toast("取消发布成功！")
+								})
+							}
+							location.reload()
+						})
+
+						mui(".fabu_bc").on("tap", "li", function(e) {
+							if(!ifLongTap) {
+								var projectID = this.title;
+								mui.openWindow({
+									url: "projectDetail.html",
+									id: "projectDetail.html",
+									extras: {
+										myID: projectID,
+										fontsize: myfontsize
+									}
+								});
+							} else {
+								var myScrollTab = document.getElementsByClassName("scrollTab");
+								for(var i = 0; i < myScrollTab.length; i++) {
+									myScrollTab[i].parentNode.style.height = '6rem'
+								};
+								ifLongTap = false;
+							}
+						})
+
+					})
+				})
+			});
+		})
+
+		function cutString(str, len) {
+			//length属性读出来的汉字长度为1
+			if(str.length * 2 <= len) {
+				return str;
+			}
+			var strlen = 0;
+			var s = "";
+			for(var i = 0; i < str.length; i++) {
+				s = s + str.charAt(i);
+				if(str.charCodeAt(i) > 128) {
+					strlen = strlen + 2;
+					if(strlen >= len) {
+						return s.substring(0, s.length - 1) + "...";
+					}
+				} else {
+					strlen = strlen + 1;
+					if(strlen >= len) {
+						return s.substring(0, s.length - 2) + "...";
+					}
+				}
+			}
+			return s;
+		}
+	</script>
+
+</html>

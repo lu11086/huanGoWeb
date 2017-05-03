@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/sub5.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">设置</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myInfor">
+						<span class="wode">个人资料</span>
+					</a>
+				</li>
+				<div style="height: 1rem;background-color: #f0efec;"></div>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate">
+						<span class="wode">开启听筒模式</span>
+						<div class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="wode">收货地址</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myFeedback">
+						<span class="wode">帮助与反馈</span>
+					</a>
+				</li>
+				<div style="height: 1rem;background-color: #f0efec;"></div>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myUpdate">
+						<span class="wode">版本更新</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="wode">  关于换go</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell" display="none" id="clearThelocal">
+					<a class="mui-navigate-right">
+						<span class="wode">清空所有本地缓存信息(localstrong)</span>
+					</a>
+				</li>
+			</ul>
+
+			<div style="height: 4rem;background-color: #f0efec;"></div>
+			<div class="my-subimt">
+				<button type="submit" value="Submit" class="button mui-btn-quit" id="quitMyLogin">退出登录</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		changeBarHeight();
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+
+		mui.plusReady(function() {
+			var myfontsize = document.documentElement.style.fontSize;
+			document.getElementById("myInfor").addEventListener("tap", function() {
+				mui.openWindow({
+					url: "sub5loginedTab1.html",
+					id: "sub5loginedTab1.html",
+					extras: {
+						fontsize: myfontsize
+					}
+				});
+			})
+
+			document.getElementById("myFeedback").addEventListener("tap", function() {
+				mui.openWindow({
+					url: "sub5loginedTab6-feedback.html",
+					id: "sub5loginedTab6-feedback.html",
+					extras: {
+						fontsize: myfontsize
+					}
+				});
+			})
+		})
+
+		/*方便调试所添加的GM权限*/
+		var myLoginInfor = JSON.parse(localStorage.getItem("ifLogined"));
+		if(myLoginInfor == "admin") {
+			document.getElementById("clearThelocal").style.display = "block"
+		} else {
+			document.getElementById("clearThelocal").style.display = "none"
+		}
+
+		document.getElementById("clearThelocal").addEventListener("tap", function() {
+			var btn = ["确定", "取消"];
+			mui.confirm('确认删除所有信息？<br>（包括所有注册账户与发布的商品）', '换购网', btn, function(e) {
+				if(e.index == 0) {
+					localStorage.removeItem("myProObjs");
+					localStorage.removeItem("localUser");
+					mui.toast("清空成功！");
+				}
+			}, 'div');
+		})
+
+		document.getElementById("myUpdate").addEventListener("tap", function() {
+			mui.toast("已经是最新版本！");
+		})
+
+		document.getElementById("quitMyLogin").addEventListener("tap", function() {
+			localStorage.removeItem("ifLogined");
+			var main = plus.webview.currentWebview().opener();
+			mui.fire(main, "pageflowrefresh");
+			mui.back();
+		})
+	</script>
+
+</html>

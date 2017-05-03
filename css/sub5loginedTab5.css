@@ -1,0 +1,22 @@
+.mui-bar-nav{
+	background-color:#4ccfc7 ;
+	height: 3rem;
+}
+.mui-bar-nav .mui-bar-title{
+	color: white;
+	font-size: 1.1rem;
+	}
+.mui-pull-left{
+	color: white;
+}
+.mui-navigate-right{
+	font-family: "微软雅黑";
+	font-size: 1rem;
+}
+.mui-table-view:before{
+	height: 0;
+}
+.zz{
+	background-color: #f0efec;
+	height: 1rem;
+}

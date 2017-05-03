@@ -1,0 +1,104 @@
+
+.mui-content .mui-input-group{
+	background: transparent;
+}
+
+.mui-content .mui-input-row {
+	height: auto;
+}
+
+#addphotoReason{
+	font-size: 1rem;
+	color: black;
+	height: 5rem;
+}
+
+#addphotoArea{
+	padding: 20px 10px 100px 10px;
+}
+
+#addphotoBtu{
+	display: block;
+	border: 1px solid #bac2c1;
+	border-radius: 10px;
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 4rem;
+	color: #bac2c1;
+	float: left;
+	background: transparent;
+}
+
+.fabu-Tab li{
+	list-style: none;
+	background: white;
+	font-size: 1rem;
+	border-bottom: 0.5px solid #c8c7cc;
+}
+
+.mui-popover .mui-table-view-cell{
+	color: #2ac4bb;
+}
+
+.myPhotos{
+	display: block;
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+}
+
+.myPhotosBig{
+	display: block;
+	float: left;
+	margin-right: 10px;
+	width: 80px;
+	height: 80px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.deleteImg{
+	position: absolute;
+	top: -0.75rem;
+	left: 65px;
+	display: block;
+	width: 1.5rem;
+	height: 1.5rem;
+	z-index: 5;
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.fabu-Tab li ul li{
+	display: block;
+	width: 16%;
+	float: left;
+	text-align: center;
+	margin: 0 2%;
+	margin-top: 2%;
+	border-radius: 10px;
+	border-bottom: none;
+	background: rgba(42,196,187,0.5);
+}
+
+.fabu-Tab li ul .mui-selected{
+	color: white;
+	background: rgba(42,196,187,0.9);
+}
+
+.myradio a{
+	font-size: 0.8rem;
+	color: dimgray;
+}
+
+.mui-table-view-cell:after,.mui-table-view:before,.mui-table-view:after{
+	background: transparent;
+}
+
+.mui-popover .mui-table-view-cell p{
+	color: #2ac4bb;
+	font-size: 1rem;
+}
+

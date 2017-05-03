@@ -1,0 +1,28 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"leftList": [
+		{
+			"fenleiName": "手套",
+			"imgUrl": "img/QQ20170315112031.jpg"
+		}, {
+			"fenleiName": "运动鞋",
+			"imgUrl": "img/QQ20170315112004.jpg"
+		}
+	],
+	"rightList": [
+		{
+			"fenleiName": "自行车",
+			"imgUrl": "img/QQ20170315112042.jpg"
+		}
+	],
+	"theTime": [
+		{
+			"fenxiangTime": "12:30 发布"
+		},{
+			"fenxiangTime": "02:00 发布"
+		},{
+			"fenxiangTime": "18:30 发布"
+		}
+	]
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sub4.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="js/vue2.js"></script> 
+	</head>
+
+	<body>
+		<div class="mui-content" id="myContent">
+			<div class="mui-card" v-for="el in fenxianglist">
+				<div class="mui-card-header mui-card-media">
+					<img class="touxiang" :src="el.userImg" />
+					<div class="mui-media-body">
+						<span class="mingcheng" v-text="el.username"></span>
+						<p>
+							<span class="whichDay" v-text="el.whichDay"></span>
+							<span class="whichTime" v-text="el.whichTime"></span> 来自：
+							<span class="whichArea" v-text="el.whichArea"></span>
+						</p>
+					</div>
+				</div>
+				<div class="mui-card-content mui-card-media">
+					<p class="pingjia" v-text="el.pingjia"></p>
+					<div class="pingjiaPic">
+						<img class="tupian" :src="el.pingjiaImg1" />
+						<img class="tupian" :src="el.pingjiaImg2" />
+						<img class="tupian" :src="el.pingjiaImg3" />
+						<img class="tupian" :src="el.pingjiaImg4" />
+					</div>
+				</div>
+				<div class="mui-card-footer">
+					<span class="mui-icon iconfont icon-zan1 iconright">赞</span>
+					<span class="mui-icon iconfont icon-pinglun iconright">评论</span>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#myContent',
+			data: {
+				fenxianglist: []
+			}
+		});
+
+		mui.ajax({
+			url: "data/sub4fenxiangList.json",
+			dataType: "json",
+			success: function(data) {
+				vm.fenxianglist = data.fenxiangList;
+				vm.$nextTick(function() {
+					/*获取当前日期*/
+					var date = new Date();
+					var seperator1 = "-";
+					var seperator2 = ":";
+					var month = date.getMonth() + 1;
+					var strDate = date.getDate();
+					if(month >= 1 && month <= 9) {
+						month = "0" + month;
+					}
+					if(strDate >= 0 && strDate <= 9) {
+						strDate = "0" + strDate;
+					}
+					var whichDay = date.getFullYear() + seperator1 + month + seperator1 + strDate;
+					/*如果日期相同，则改具体日期为“今天”*/
+					var getTheDay = document.getElementsByClassName('whichDay');
+					for(var i = 0;i<getTheDay.length;i++){
+						if(getTheDay[i].innerText == whichDay) {
+							getTheDay[i].innerText = "今天";
+						}
+					}
+				})
+			}
+		});
+		
+		mui.plusReady(function() {
+				/*首页返回键处理*/
+				var  first  =  null;              
+				plus.key.addEventListener('backbutton',  function() {                 
+					if(!first) {                      
+						first  =  new  Date().getTime();                      
+						mui.toast('再按一次退出应用');                      
+						setTimeout(function() {                          
+							first  =  null;                      
+						}, 2000);                  
+					} 
+					else  {                      
+						if(new  Date().getTime()  -  first  <  2000) {                          
+							plus.runtime.quit();                      
+						}                  
+					}              
+				},  false);
+			})
+	</script>
+
+</html>

@@ -1,0 +1,48 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"leftList": [
+		{
+			"fenleiName": "复古书籍",
+			"imgUrl": "img/list1.png"
+		}, {
+			"fenleiName": "现代言情",
+			"imgUrl": "img/list2.png"
+		}, {
+			"fenleiName": "武侠小说",
+			"imgUrl": "img/list4.png"
+		}, {
+			"fenleiName": "文学",
+			"imgUrl": "img/list5.png"
+		}
+	],
+	"rightList": [
+		{
+			"fenleiName": "青春校园",
+			"imgUrl": "img/list3.png"
+		}, {
+			"fenleiName": "历史书籍",
+			"imgUrl": "img/list6.png"
+		}, {
+			"fenleiName": "日记本",
+			"imgUrl": "img/list7.png"
+		}
+	],
+	"theTime": [
+		{
+			"fenxiangTime": "12:30 发布"
+		},{
+			"fenxiangTime": "02:00 发布"
+		},{
+			"fenxiangTime": "11:25 发布"
+		},{
+			"fenxiangTime": "15:35 发布"
+		},{
+			"fenxiangTime": "08:00 发布"
+		},{
+			"fenxiangTime": "06:55 发布"
+		},{
+			"fenxiangTime": "18:30 发布"
+		}
+	]
+}

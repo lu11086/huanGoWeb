@@ -1,0 +1,28 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"leftList": [
+		{
+			"fenleiName": "经济家用车",
+			"imgUrl": "img/-461960534.jpg"
+		}, {
+			"fenleiName": "电动车",
+			"imgUrl": "img/1320193162.jpg"
+		}
+	],
+	"rightList": [
+		{
+			"fenleiName": "跑车",
+			"imgUrl": "img/966008790.jpg"
+		}
+	],
+	"theTime": [
+		{
+			"fenxiangTime": "08:00 发布"
+		},{
+			"fenxiangTime": "06:55 发布"
+		},{
+			"fenxiangTime": "18:30 发布"
+		}
+	]
+}

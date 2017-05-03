@@ -1,0 +1,93 @@
+body{
+	font-family: "微软雅黑";
+}
+
+.mui-popup-button{
+	color: #2ac4bb;
+}
+
+.mui-bar{
+	background: #4ccfc7;
+}
+
+header button{
+	color: white;
+	background: transparent;
+	border: transparent;
+}
+
+header .mui-icon{
+	color: white;
+}
+
+header form .mui-icon{
+	position: absolute;
+	left: 3%;
+}
+
+header .mui-title{
+	color: white;
+}
+
+header .mui-title-right{
+	font-size: 1rem;
+	float: right;
+	color: white;
+	padding: 12px 10px;
+}
+
+header input[type=text]{
+	background: #65ede5;
+	color: white;
+	text-align: center;
+	font-size: 0.9rem;
+	margin-top: 7px;
+	margin-bottom: 0;
+	padding: 0;
+	height: 30px;
+	border-radius: 15px;
+	border: none;
+	position: relative;
+	top:-44px;
+}
+
+header input::-webkit-input-placeholder{
+	color: white;
+}
+
+nav span{
+	color: white;
+}
+
+.mui-bar-tab .mui-tab-item-fly{
+	width: 95%;
+    background: #2ac4bb;
+    border: none;
+    border-radius: 15px;
+}
+
+.mui-bar-tab .mui-tab-item-fly span{
+	position: relative;
+	top: -2px;
+}
+
+.mui-bar-tab .mui-tab-item-fly .mui-icon{
+	top: -1px;
+}
+
+.mui-bar-tab .mui-tab-item{
+	overflow: inherit;
+	table-layout:fixed;
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label{
+	font-size: 0.8rem;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active span{
+	color:#025954;
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon{
+	width: auto;
+}

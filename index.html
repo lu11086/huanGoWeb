@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<div class="mui-row">
+				<div class="mui-col-sm-2 mui-col-xs-2">
+					<button class="mui-icon iconfont icon-saoyisao" id="cameraScan"></button>
+				</div>
+				<div class="mui-col-sm-8 mui-col-xs-8">
+					<form action="" method="post">
+						<span class="mui-icon mui-icon-search"></span>
+						<input type="text" placeholder="宝贝查找" id="sub0Search" />
+					</form>
+				</div>
+			</div>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" name="sub1">
+				<span class="mui-icon iconfont icon-icon-site" style="font-size: 20px;"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" name="sub2">
+				<span class="mui-icon iconfont icon-shu"></span>
+				<span class="mui-tab-label">分类</span>
+			</a>
+			<a class="mui-tab-item" name="sub3">
+				<button class="mui-tab-item-fly" id="sub3">
+					<span class="mui-icon iconfont icon-camera"></span>
+					<span class="mui-tab-label">发布</span>
+				</button>
+			</a>
+			<a class="mui-tab-item" name="sub4">
+				<span class="mui-icon iconfont icon-comiispengyouquan"></span>
+				<span class="mui-tab-label">分享圈</span>
+			</a>
+			<a class="mui-tab-item" name="sub5">
+				<span class="mui-icon iconfont icon-wode"></span>
+				<span class="mui-tab-label">我</span>
+			</a>
+		</nav>
+	</body>
+	<script type="text/javascript">
+		var initWidth = document.documentElement.clientWidth || document.body.clientWidth;
+
+		/*设置按钮的页面跳转*/
+		var subPages = ["sub1.html", "sub2.html", "sub4.html", "sub5.html"];
+
+		mui.plusReady(function() {
+			if(plus.navigator.isImmersedStatusbar()) {
+				var lh = plus.navigator.getStatusbarHeight();
+				var barHeight = lh * plus.screen.scale;
+				var headerHeight = document.querySelector('.mui-bar-nav');
+				headerHeight.style.height = barHeight + 2 + 'px';
+				headerHeight.style.paddingTop = barHeight - 42 + 'px';
+				var style = document.createElement('style');
+				style.innerHTML = '.mui-bar-nav~ .mui-content .mui-pull-top-pocket{top:' + barHeight + 'px !important;';
+				document.getElementsByTagName('head').item(0).appendChild(style);
+				if(!localStorage.getItem("barHeight")) {
+					localStorage.setItem("barHeight", barHeight);
+				}
+
+				var subPageStyle = {
+					top: barHeight + 2 + 'px',
+					bottom: '50px'
+				}
+			} else {
+				plus.navigator.setStatusBarBackground('#4ccfc7');
+				var subPageStyle = {
+					top: '44px',
+					bottom: '50px'
+				}
+			}
+
+			//计算根的font-size值
+			var html = document.documentElement;
+			var windowWidth = html.clientWidth;
+			var theFontSize = 0;
+			if(windowWidth / 22.5 > 16) {
+				theFontSize = 16 + 'px';
+			} else {
+				theFontSize = windowWidth / 22.5 + 'px';
+			} /*等价于当屏幕宽度大于等于360的时候，html.style.fontSize = 16; */
+
+			mui.preload({
+				url: 'sub3.html',
+				id: 'sub3.html',
+				extras: {
+					fontsize: theFontSize
+				}
+			});
+
+			var self = plus.webview.currentWebview();
+			for(var i = 0; i < subPages.length; i++) {
+				var sub = plus.webview.create(subPages[i], subPages[i], subPageStyle, {
+					fontsize: theFontSize,
+					documentWidth: initWidth
+				});
+				sub.hide();
+				self.append(sub);
+			}
+			plus.webview.show("sub1.html");
+
+			document.getElementById('sub3').addEventListener("tap", function(e) {
+				var myLoginInfor = localStorage.getItem("ifLogined");
+				if(!myLoginInfor) {
+					mui.toast("请先登录！");
+					mui.openWindow({
+						url: "sub5denglu.html",
+						id: "sub5denglu.html",
+						extras: {
+							fontsize: theFontSize
+						}
+					});
+				} else if(myLoginInfor == '"admin"') {
+					mui.toast("超级管理员用户无发布功能，请更换账户");
+				} else {
+					var refresh = plus.webview.getWebviewById('sub3.html');
+					mui.fire(refresh, "refreshPage");
+					mui.openWindow({
+						url: "sub3.html",
+						id: "sub3.html",
+						extras: {
+							fontsize: theFontSize
+						},
+						show: {
+							aniShow: "slide-in-bottom",
+							duration: 300
+						}
+					});
+				};
+			})
+
+			mui(".mui-bar-tab").on("tap", "a", function(e) {
+				var name = this.getAttribute("name");
+				if(name != "sub3") {
+					changeMyTitle(name);
+					plus.webview.show(name + ".html");
+					for(var i = 1; i <= subPages.length + 1; i++) {
+						if(i != 3) {
+							if(i != name.substr(3, 1)) {
+								plus.webview.hide("sub" + i + ".html");
+							}
+						}
+					}
+				}
+			})
+
+			if(document.getElementById("cameraScan")) {
+				document.getElementById("cameraScan").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "cameraScan.html",
+						id: "cameraScan.html",
+						extras: {
+							fontsize: theFontSize
+						}
+					});
+				});
+				document.getElementById("sub0Search").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sub0Search.html",
+						id: "sub0Search.html",
+						extras: {
+							fontsize: theFontSize
+						}
+					});
+				});
+			}
+
+			function changeMyTitle(key) {
+				var myTitle = document.getElementsByTagName('header')[0];
+				if(key == "sub1") {
+					var str = '<div class="mui-row">';
+					str += '<div class="mui-col-sm-2 mui-col-xs-2">';
+					str += '<button class="mui-icon iconfont icon-saoyisao" id="cameraScan"></button>';
+					str += '</div><div class="mui-col-sm-8 mui-col-xs-8">';
+					str += '<form action="" method="post">';
+					str += '<span class="mui-icon mui-icon-search"></span>';
+					str += '<input type="text" placeholder="宝贝查找" id="sub0Search" />';
+					str += '</form></div></div>';
+				} else if(key == "sub2") {
+					var str = '<div class="mui-row">';
+					str += '<div class="mui-col-sm-2 mui-col-xs-2">';
+					str += '<button class="mui-icon iconfont icon-saoyisao" id="cameraScan"></button>';
+					str += '</div><div class="mui-col-sm-8 mui-col-xs-8">';
+					str += '<form action="" method="post">';
+					str += '<span class="mui-icon mui-icon-search"></span>';
+					str += '<input type="text" placeholder="请输入搜索类" id="sub0Search" />';
+					str += '</form></div></div>';
+				} else if(key == "sub4") {
+					var str = '<h1 class="mui-title">分享圈</h1>';
+					str += '<span class="mui-icon iconfont icon-xinfeng mui-title-right"></span>';
+				} else if(key == "sub5") {
+					var str = '<h1 class="mui-title">我</h1>';
+				}
+				myTitle.innerHTML = str;
+				titleFunction();
+			}
+
+			function titleFunction() {
+				if(document.getElementById("cameraScan")) {
+					document.getElementById("cameraScan").addEventListener("tap", function() {
+						mui.openWindow({
+							url: "cameraScan.html",
+							id: "cameraScan.html",
+							extras: {
+								fontsize: theFontSize
+							}
+						});
+					});
+					document.getElementById("sub0Search").addEventListener("tap", function() {
+						mui.openWindow({
+							url: "sub0Search.html",
+							id: "sub0Search.html",
+							extras: {
+								fontsize: theFontSize /*,headerHeight: barHeight*/
+							}
+						});
+					});
+				}
+			}
+		})
+	</script>
+
+</html>

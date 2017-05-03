@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/sub5loginedTab1.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">个人资料</h1>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<span class="mui-title-right" id="localTheUI">保存</span>
+		</header>
+		<div class="mui-card" id="myContent">
+			<ul class="mui-table-view">
+
+				<li class="mui-table-view-cell">
+					<a>
+						<div class="title">换 go头像</div>
+						<div class="tupian"> <img :src="userInfor.userImg" /></div>
+					</a>
+
+				</li>
+				<li class="mui-table-view-cell">
+					<a>
+						会员名
+						<div class="cell-right" v-text="userInfor.userID"></div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="getMyNicheng">
+						换go昵称
+						<div class="cell-right" v-text="userInfor.userName"></div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="getUserAddress">
+						常用地址
+						<div class="cell-right" v-text="userInfor.userAddress"></div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a id="chooseSex">
+						性别
+						<div class="cell-right" v-text="userInfor.userSex"></div>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+			<!-- 可选择菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<span>请输入昵称：</span>
+					<input type="text" id="myNicheng" />
+				</li>
+			</ul>
+			<!-- 取消菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#sheet1" id="aknowTheNicheng"><b>确认</b></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#sheet1" style="color: #ca203b;"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+
+		<div id="sheet2" class="mui-popover mui-popover-bottom mui-popover-action ">
+			<!-- 可选择菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<span>请选择性别：</span>
+					<ul class="mui-table-view mui-table-view-radio">
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">男</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">女</a>
+						</li>
+						<li class="mui-table-view-cell mui-selected">
+							<a class="mui-navigate-right">保密</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<!-- 取消菜单 -->
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#sheet2" id="aknowTheSex"><b>确认</b></a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="#sheet2" style="color: #ca203b;"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+
+	</body>
+	<script type="text/javascript" src="js/vue2.js"></script>
+	<script type="text/javascript">
+		changeBarHeight();
+		
+		var vm = new Vue({
+			el: '#myContent',
+			data: {
+				userInfor: []
+			}
+		});
+
+		var myLoginInfor = JSON.parse(localStorage.getItem("ifLogined"));
+		mui.getJSON("data/adminUser.json", function(data) {
+			if(!data[myLoginInfor]) {
+				var myLocalUser = JSON.parse(localStorage.getItem("localUser"));
+				data[myLoginInfor] = myLocalUser[myLoginInfor];
+			};
+			vm.userInfor = data[myLoginInfor];
+			vm.$nextTick(function() {
+				/*更改昵称*/
+				document.getElementById("getMyNicheng").addEventListener("tap", function() {
+					mui('#sheet1').popover('toggle');
+				});
+
+				document.getElementById("aknowTheNicheng").addEventListener("tap", function() {
+					var niCheng = document.getElementById("myNicheng").value;
+					Vue.set(vm.userInfor, 'userName', niCheng);
+					var newLocalUser = JSON.parse(localStorage.getItem("localUser"));
+					newLocalUser[myLoginInfor] = vm.userInfor;
+					localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+				});
+				/*更改地址*/
+				var changeTheAddress = localStorage.getItem("getWholeAddress");
+				if(changeTheAddress) {
+					var theText = changeTheAddress.split('"');
+					document.getElementById("getUserAddress").lastChild.innerText = theText[1];
+					var theShortText = theText[1].split('-');
+					Vue.set(vm.userInfor, 'userAddress', theText[1]);
+					Vue.set(vm.userInfor, 'userShortAdd', theShortText[2]);
+					localStorage.removeItem("getWholeAddress");
+					var newLocalUser = JSON.parse(localStorage.getItem("localUser"));
+					newLocalUser[myLoginInfor] = vm.userInfor;
+					localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+				};
+				/*更改性别*/
+				document.getElementById("chooseSex").addEventListener("tap", function() {
+					mui('#sheet2').popover('toggle');
+				});
+
+				var list = document.querySelector('.mui-table-view.mui-table-view-radio');
+				var theSex = '';
+				list.addEventListener('selected', function(e) {
+					theSex = e.detail.el.innerText
+				});
+				document.getElementById("aknowTheSex").addEventListener("tap", function() {
+					Vue.set(vm.userInfor, 'userSex', theSex);
+					var newLocalUser = JSON.parse(localStorage.getItem("localUser"));
+					newLocalUser[myLoginInfor] = vm.userInfor;
+					localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+				});
+
+				document.getElementById("localTheUI").addEventListener("tap", function() {
+					var main = plus.webview.getWebviewById('sub5.html');
+					mui.fire(main, "pageflowrefresh");
+					mui.back();
+				});
+			})
+		});
+
+		mui.plusReady(function() {
+			window.addEventListener("pageflowrefresh", function(e) {
+				location.reload();
+			});
+
+			var myfontsize = document.documentElement.style.fontSize;
+			document.getElementById("getUserAddress").addEventListener("tap", function() {
+				mui.openWindow({
+					url: "sub3address.html",
+					id: "sub3address.html",
+					extras: {
+						fontsize: myfontsize
+					}
+				});
+			})
+		})
+	</script>
+
+</html>

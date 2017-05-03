@@ -1,0 +1,33 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"leftList": [
+		{
+			"fenleiName": "乐器",
+			"imgUrl": "img/1615663976.jpg"
+		}, {
+			"fenleiName": "精品耳环",
+			"imgUrl": "img/-326969824.jpg"
+		}
+	],
+	"rightList": [
+		{
+			"fenleiName": "指甲油",
+			"imgUrl": "img/622243006.jpg"
+		}, {
+			"fenleiName": "收纳箱",
+			"imgUrl": "img/SHNA.jpg"
+		}
+	],
+	"theTime": [
+		{
+			"fenxiangTime": "12:30 发布"
+		},{
+			"fenxiangTime": "08:00 发布"
+		},{
+			"fenxiangTime": "06:55 发布"
+		},{
+			"fenxiangTime": "18:30 发布"
+		}
+	]
+}

@@ -1,0 +1,72 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"fenleiList": [
+		{
+			"fenleiName": "服饰箱包",
+			"whichLei": "cloth",
+			"imgUrl": "img/fenlei1.png"
+		}, {
+			"fenleiName": "家用电器",
+			"whichLei": "machine",
+			"imgUrl": "img/fenlei2.png"
+		}, {
+			"fenleiName": "数码",
+			"whichLei": "digit",
+			"imgUrl": "img/fenlei3.png"
+		}, {
+			"fenleiName": "运动户外",
+			"whichLei": "sport",
+			"imgUrl": "img/fenlei4.png"
+		}, {
+			"fenleiName": "办公用品",
+			"whichLei": "office",
+			"imgUrl": "img/fenlei5.png"
+		}, {
+			"fenleiName": "二手车",
+			"whichLei": "car",
+			"imgUrl": "img/fenlei6.png"
+		}, {
+			"fenleiName": "书籍",
+			"whichLei": "book",
+			"imgUrl": "img/fenlei7.png"
+		}, {
+			"fenleiName": "其他想换",
+			"whichLei": "other",
+			"imgUrl": "img/fenlei8.png"
+		}
+	],
+	"proList": [
+		{
+			"projectID": "ID10001",
+			"ImgUrl": "img/IMG_20170315_100446.jpg",
+			"ProNum":"3564",
+			"ProName": "闲置精美相册"
+		},{
+			"projectID": "ID10002",
+			"ImgUrl": "img/IMG_20170315_101911.jpg",
+			"ProNum":"3523",
+			"ProName": "闲置精美项链"
+		},{
+			"projectID": "ID10003",
+			"ImgUrl": "img/IMG_20170315_101954.jpg",
+			"ProNum":"7856",
+			"ProName": "闲置精美皮包"
+		},{
+			"projectID": "ID10004",
+			"ImgUrl": "img/IMG_20170315_102026.jpg",
+			"ProNum":"4687",
+			"ProName": "闲置精美女鞋"
+		},{
+			"projectID": "ID10005",
+			"ImgUrl": "img/IMG_20170315_102807.jpg",
+			"ProNum":"8766",
+			"ProName": "闲置精美餐碟"
+		},{
+			"projectID": "ID10006",
+			"ImgUrl": "img/IMG_20170315_102829.jpg",
+			"ProNum":"4567",
+			"ProName": "闲置精美口红"
+		}
+	]
+}

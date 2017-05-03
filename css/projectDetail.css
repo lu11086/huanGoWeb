@@ -1,0 +1,220 @@
+.mui-content {
+	text-align: center;
+	padding-bottom: 3rem;
+}
+
+.mui-content .mui-row {
+	text-align: center;
+	background-color: white;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.clear {
+	clear: left;
+	clear: right;
+}
+
+.pic_detail {
+	margin: 1rem;
+	position: relative;
+	padding: 0.5rem;
+	border-bottom: 1px solid #888787;
+	background-color: white;
+}
+
+.projectImg {
+	overflow: hidden;
+}
+
+.projectImg img {
+	width: 100%;
+}
+
+.detail {
+	width: 30%;
+	text-align: center;
+	font-size: 0.9rem;
+	position: absolute;
+	padding: 0.1rem 0;
+	color: white;
+	background-color: #2AC4BB;
+	top: -0.5rem;
+	left: 35%;
+	z-index: 2;
+	box-shadow: 0.12rem 0.12rem 0.12rem #5E5E5E;
+}
+
+.star {
+	float: left;
+	font-size: 1.2rem;
+	color: #F4875C;
+	font-weight: bold;
+}
+
+.pic_left {
+	float: left;
+	padding-top: 0.1rem;
+}
+
+.pic_right {
+	float: right;
+}
+
+.pic_top {
+	padding-top: 0.7rem;
+}
+
+.pic_top_r {
+	font-weight: bold;
+	color: #737978;
+}
+
+.pic_bot {
+	margin-top: 0.1rem;
+}
+
+.pic_bot_L,
+.pic_bot_r {
+	color: #777777;
+	font-size: 0.9rem;
+	padding: 0.3rem 0;
+}
+
+.btn {
+	display: block;
+	height: 50px;
+	width: 50px;
+	border-radius: 25px;
+	position: absolute;
+	left: -webkit-calc(50% - 25px);
+	bottom: -25px;
+	opacity: 0.8;
+	background-color: #888787;
+	color: white;
+	border: none;
+}
+
+.voice {
+	display: block;
+	margin: 0 auto;
+	font-size: 1.5rem;
+}
+
+.detail_star {
+	width: 100%;
+	border-bottom: 1px solid #737978;
+	padding: 0.5rem 1.3rem;
+}
+
+.detail_star_L {
+	float: left;
+	color: #4DCFC7;
+	font-weight: bold;
+}
+
+.star-left {
+	color: #737978;
+	float: left;
+}
+
+.detail_star_R {
+	float: right;
+}
+
+.detail_timer {
+	float: right;
+	color: slategrey;
+	font-size: 0.9rem;
+	padding-top: 2.1rem;
+}
+
+.detail_content {
+	text-align: left;
+	padding: 0.5rem;
+}
+
+.mui-user-content {
+	padding: 0.8rem;
+	padding-bottom: 0;
+}
+
+.userImg {
+	float: left;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	overflow: hidden;
+}
+
+.userImg img {
+	width: 100%;
+}
+
+.mui-user-infor {
+	display: block;
+	float: left;
+	height: 3rem;
+	font-size: 1rem;
+	padding-top: 0.3rem;
+	padding-left: 0.5rem;
+}
+
+.projectDetail {
+	background: transparent;
+	border: none;
+	padding-bottom: 1rem;
+}
+
+.detail_content p {
+	font-size: 0.9rem;
+	color: #888787;
+}
+
+.pingfen {
+	font-size: 1.3rem;
+	color: #F4875C;
+}
+
+.myNav {
+	width: 100%;
+	height: 3rem;
+	background: #4ccfc7;
+	position: fixed;
+	bottom: 0;
+}
+
+.myDetailButton {
+	height: 3rem;
+	border: none;
+	float: right;
+	color: white;
+	background-clip: padding-box;
+}
+
+.myHuanGo {
+	background-color: #2ac4bb;
+}
+
+.myCollect {
+	background-color: #4ccfc7;
+}
+
+.myDetailButton .mui-tab-label {
+	font-size: 1rem;
+}
+
+#myCollectStar{
+	font-size: 1.2rem;
+}
+
+button.mui-active:enabled,
+button:enabled:active {
+	background: #1efaec;
+}

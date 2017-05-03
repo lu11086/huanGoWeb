@@ -1,0 +1,28 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"leftList": [
+		{
+			"fenleiName": "旅行箱",
+			"imgUrl": "img/bag1.jpg"
+		}, {
+			"fenleiName": "精品女包",
+			"imgUrl": "img/bag3.jpg"
+		}
+	],
+	"rightList": [
+		{
+			"fenleiName": "精品长裙",
+			"imgUrl": "img/cloth1.jpg"
+		}
+	],
+	"theTime": [
+		{
+			"fenxiangTime": "11:25 发布"
+		},{
+			"fenxiangTime": "15:35 发布"
+		},{
+			"fenxiangTime": "08:00 发布"
+		}
+	]
+}

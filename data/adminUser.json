@@ -1,0 +1,34 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"admin": {
+		"userID": "admin",
+		"myPassword": "admin",
+		"userName": "一个管理员",
+		"userImg": "img/tx3.png",
+		"userAddress": "河北省-承德市-双桥区",
+		"userShortAdd": "承德市双桥区",
+		"userSex": "男",
+		"fabuInfor": [
+			{"projectID":"ID10001"},
+			{"projectID":"ID10002"}
+		],
+		"HistoryInfor": [
+			{"projectID":"ID10006"},
+			{"projectID":"ID10004"}
+		],
+		"collectInfor": [
+			{"projectID":"ID10005"},
+			{"projectID":"ID10003"}
+		]
+	},
+	"nullInfor": {
+		"userID": "",
+		"myPassword": "",
+		"userName": "点击登陆",
+		"userImg": "img/my.png",
+		"userAddress": "",
+		"userShortAdd": "常用地址设置",
+		"userSex": ""
+	}
+}

@@ -1,0 +1,141 @@
+.NextDiv {
+	background-color: #f0efec;
+	width: 100%;
+	height: 1.5rem;
+}
+
+.mui-card {
+	width: 100%;
+	margin-left: -0.06rem;
+	border-radius: 0;
+	height: 3.3rem;
+}
+
+.mui-table-view-cell{
+	padding: 0;
+}
+
+.mui-table-view-cell>a:not(.mui-btn){
+	margin: 0;
+	padding: 0.5rem;
+}
+
+.mui-table-view li img {
+	height: 2rem;
+}
+
+.mui-table-view li span {
+	display: block;
+	margin-top: 0.25rem;
+	padding: 0 0.5rem;
+	font-weight: bold;
+	font-family: "微软雅黑";
+	font-size: 1rem;
+	line-height: 2rem;
+}
+
+.mui-row-top{
+	border-top: 1px solid #fc7b17;
+}
+
+.mui-row-cell {
+	padding: 0.625rem ;
+	background: white;
+	border-right:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}
+
+.mui-row-cell-bottom {
+	border-bottom: none;
+}
+
+.left {
+	float: left;
+}
+
+.left span{
+	font-size: 1rem;
+}
+
+#xinImg{
+	height: 1.8rem;
+	padding-top: 0.5rem;
+}
+
+.gyjy-left{
+	width: 20%;
+	float: left;
+}
+
+.gyjy-right{
+	width: 80%;
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.mui-btn-warning{
+	font-size: 0.7rem;
+	padding: 0.25rem;
+	border-radius: 0.4rem;
+}
+
+.grid_icon {
+	width: 5rem;
+	height: 5rem;
+	margin: 0 auto;
+}
+
+.grid_icon img{
+	width: 100%;
+}
+
+.BigDiv {
+	margin: 0 auto;
+	margin-top: 0.3125rem;
+	max-width: 8rem;
+}
+
+.BigDiv span {
+	font-size: 1rem;
+	color: #fc7b17;
+}
+
+.clearfloat {
+	clear: both;
+}
+
+.top {
+	width: 6.6rem;
+	height: 1.8rem;
+	background-color: #fc7b17;
+	transform: skew(140deg, 180deg);
+	margin-left: -2rem;
+	margin-top: -0.625rem;
+	float: left;
+}
+
+.top-con {
+	color: white;
+	font-family: "微软雅黑";
+	transform: skew(-140deg, 180deg);
+	padding-left: 1.54rem;
+	padding-top: 0.325rem;
+}
+
+.mid {
+	width: 5.2rem;
+	height: 0.5rem;
+}
+
+.content{
+	width:100%;
+	background-color: #ffffff;
+	text-align: center;
+	padding: 0.5rem 0; 
+}
+.content img{
+	width:95%;
+}

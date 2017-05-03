@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/sub5.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+
+	<body>
+		<div class="mui-content" id="myContent">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell" title="login">
+					<a class="mui-navigate-right" id="myInfor">
+						<div class="img"><img :src="userInfor.userImg" /></div>
+						<div class="aa">
+							<div>
+								<font color="#2C2B2B" v-text="userInfor.userName"></font>
+							</div>
+							<div>
+								<font color="grey" size="2" v-text="userInfor.userShortAdd"></font>
+							</div>
+						</div>
+					</a>
+				</li>
+				<div style="height: 1rem;background-color: #f0efec;"></div>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myGoods">
+						<span class="mui-icon iconfont icon-publish"></span> 我发布的宝贝
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myHistory">
+						<span class="mui-icon iconfont icon-gouwuche-copy"></span> 我换购的宝贝
+					</a>
+				</li>
+				<div style="height: 1rem;background-color: #f0efec;"></div>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myCollect">
+						<span class="mui-icon iconfont icon-shoucangshoucang"></span> 我的收藏
+					</a>
+				</li>
+				<div style="height: 1rem;background-color: #f0efec;"></div>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="mySafe">
+						<span class="mui-icon mui-icon-locked"></span> 账户安全
+					</a>
+				</li>
+				<div style="height: 1rem;background-color: #f0efec;"></div>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right" id="myConfig">
+						<span class="mui-icon mui-icon-gear"></span> 设置
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/vue2.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#myContent',
+			data: {
+				userInfor: []
+			}
+		});
+
+		mui.plusReady(function() {
+			window.addEventListener("pageflowrefresh", function(e) {
+				location.reload();
+			});
+
+			var myfontsize = document.documentElement.style.fontSize;
+			var myLoginInfor = localStorage.getItem("ifLogined");
+			if(!myLoginInfor) {
+				mui.getJSON("data/adminUser.json", function(data) {
+					vm.userInfor = data.nullInfor;
+				});
+
+				mui(".mui-table-view").on("tap", "li", function(e) {
+					if(this.title != "login") {
+						mui.toast("请先登录！");
+					};
+					mui.openWindow({
+						url: "sub5denglu.html",
+						id: "sub5denglu.html",
+						extras: {
+							fontsize: myfontsize
+						}
+					});
+				})
+			} else {
+				var myUserID = JSON.parse(myLoginInfor);
+				mui.getJSON("data/adminUser.json", function(data) {
+					if(!data[myUserID]) {
+						var myLocalUser = JSON.parse(localStorage.getItem("localUser"));
+						data[myUserID] = myLocalUser[myUserID];
+					};
+					vm.userInfor = data[myUserID];
+				});
+				
+				document.getElementById("myInfor").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sub5loginedTab1.html",
+						id: "sub5loginedTab1.html",
+						extras: {
+							fontsize: myfontsize
+						}
+					});
+				})
+
+				document.getElementById("myGoods").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sub5loginedTab2.html",
+						id: "sub5loginedTab2.html",
+						extras: {
+							fontsize: myfontsize
+						}
+					});
+				})
+				
+				document.getElementById("myHistory").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sub5loginedTab3.html",
+						id: "sub5loginedTab3.html",
+						extras: {
+							fontsize: myfontsize
+						}
+					});
+				})
+				
+				document.getElementById("myCollect").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sub5loginedTab4.html",
+						id: "sub5loginedTab4.html",
+						extras: {
+							fontsize: myfontsize
+						}
+					});
+				})
+				
+				document.getElementById("mySafe").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sub5loginedTab5.html",
+						id: "sub5loginedTab5.html",
+						extras: {
+							fontsize: myfontsize
+						}
+					});
+				})
+				
+				document.getElementById("myConfig").addEventListener("tap", function() {
+					mui.openWindow({
+						url: "sub5loginedTab6.html",
+						id: "sub5loginedTab6.html",
+						extras: {
+							fontsize: myfontsize
+						}
+					});
+				})
+			};
+
+			/*首页返回键处理*/
+			var  first  =  null;              
+			plus.key.addEventListener('backbutton',  function() {                 
+				if(!first) {                      
+					first  =  new  Date().getTime();                      
+					mui.toast('再按一次退出应用');                      
+					setTimeout(function() {                          
+						first  =  null;                      
+					}, 2000);                  
+				} 
+				else  {                      
+					if(new  Date().getTime()  -  first  <  2000) {                          
+						plus.runtime.quit();                      
+					}                  
+				}              
+			},  false);
+		})
+	</script>
+
+</html>

@@ -1,0 +1,65 @@
+
+.mui-content>.mui-card:first-child {
+    margin-top: 0;
+}
+
+.mui-card{
+	width: 100%;
+	margin: 0;
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	padding: 0.25rem 0.75rem;
+}
+
+.touxiang {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	overflow: hidden;
+	float: left;
+	margin: 0.3rem 0;
+	margin-right: 0.75rem;
+}
+
+.mingcheng {
+	display: block;
+	font-size: 1rem;
+	font-weight: normal;
+	color: black;
+	padding-top: 0.4rem;
+}
+
+.mui-media-body p{
+	display: block;
+	padding-top: 0.4rem;
+	font-size: 0.8rem;
+}
+
+.whichTime{
+	margin-right: 2rem;
+}
+
+.pingjia {
+	font-size: 0.9rem;
+	color: black;
+}
+
+.tupian {
+	height: 4rem;
+	width: 4rem;
+	margin-right: 0.5rem;
+}
+
+.footer {
+	height: 2rem;
+	width: 2rem;
+}
+
+.iconright {
+	font-size: 1rem;
+	font-weight: normal;
+	padding-left:0.5rem;
+	padding-bottom: 0.5rem;
+	float: right;
+}

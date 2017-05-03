@@ -1,0 +1,51 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"fenxiangList": [
+		{
+			"username": "苏陌",
+			"userImg": "img/tx1.png",
+			"whichDay": "2017-03-22",
+			"whichTime": "12:20",
+			"whichArea": "同城",
+			"pingjia": "很喜欢这个自行车,真的超级喜欢！",
+			"pingjiaImg1": "img/zixingche1.jpg",
+			"pingjiaImg2": "img/zixingche2.jpg",
+			"pingjiaImg3": "img/none.png",
+			"pingjiaImg4": "img/none.png"
+		},{
+			"username": "阿乔",
+			"userImg": "img/tx2.png",
+			"whichDay": "2017-03-22",
+			"whichTime": "11:40",
+			"whichArea": "同城",
+			"pingjia": "这件牛仔衣真的很棒，很有范，换go真的很棒！",
+			"pingjiaImg1": "img/yifu1.jpg",
+			"pingjiaImg2": "img/none.png",
+			"pingjiaImg3": "img/none.png",
+			"pingjiaImg4": "img/none.png"
+		},{
+			"username": "小琪",
+			"userImg": "img/tx3.png",
+			"whichDay": "2017-03-21",
+			"whichTime": "19:40",
+			"whichArea": "同城",
+			"pingjia": "这个耳机大概有九成新，音质很不错！",
+			"pingjiaImg1": "img/erji1.jpg",
+			"pingjiaImg2": "img/erji2.jpg",
+			"pingjiaImg3": "img/none.png",
+			"pingjiaImg4": "img/none.png"
+		},{
+			"username": "七七",
+			"userImg": "img/tx4.png",
+			"whichDay": "2017-03-20",
+			"whichTime": "19:40",
+			"whichArea": "同城",
+			"pingjia": "想要一双运动鞋，真的要什么有什么，方便。",
+			"pingjiaImg1": "img/xie1.jpg",
+			"pingjiaImg2": "img/xie2.jpg",
+			"pingjiaImg3": "img/none.png",
+			"pingjiaImg4": "img/none.png"
+		}
+	]
+}

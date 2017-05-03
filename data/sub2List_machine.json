@@ -1,0 +1,28 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"leftList": [
+		{
+			"fenleiName": "电磁锅",
+			"imgUrl": "img/guo1.jpg"
+		}, {
+			"fenleiName": "洗碗机",
+			"imgUrl": "img/XWJ.jpg"
+		}
+	],
+	"rightList": [
+		{
+			"fenleiName": "洗衣机",
+			"imgUrl": "img/5562620170315110823.jpg"
+		}
+	],
+	"theTime": [
+		{
+			"fenxiangTime": "11:25 发布"
+		},{
+			"fenxiangTime": "08:00 发布"
+		},{
+			"fenxiangTime": "18:30 发布"
+		}
+	]
+}

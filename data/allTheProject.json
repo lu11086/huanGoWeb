@@ -1,0 +1,550 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"ID10001": {
+		"proName": "实木摆台式相框",
+		"proImg": [
+			{
+				"imgUrl": "img/IMG_20170315_100446.jpg"
+			}, {
+				"imgUrl": "img/IMG_20170315_100446.jpg"
+			}
+		],
+		"proWant": "手绘雪花陶瓷餐具",
+		"proPrice": "￥98",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/tx2.png",
+		"userName": "妃子终究不是后",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-03-27",
+		"userWord": "新年去香港旅游买的纪念品，买了好几个，除去送给朋友的相框，还有这两个黑白的未曾使用，全新品，有包装盒。这是我喜欢的物件，但是好的东西应该和大家分享，不应该存封在收纳柜里边，所以我把它拿到换购网上。我想要在换购网平台上换取一对手绘雪花陶瓷餐具圆盘，希望该手绘雪花瓷的图案是日式创意梅花系列图，我曾经见到过此种餐具，很喜欢，希望可以交换到。"
+	},
+	"ID10002": {
+		"proName": "闲置镀银项链",
+		"proImg": [
+			{
+				"imgUrl": "img/IMG_20170315_101911.jpg"
+			}
+		],
+		"proWant": "水晶吊坠毛衣链",
+		"proPrice": "￥998",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"userImg": "img/www11.jpg",
+		"userName": "天王盖地虎",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-02-27",
+		"userWord": "这是我和闺蜜一起去逛街买回来的镀银项链，小巧玲珑，样式雅致。佩戴起来比较好看，还比较趁肤色，很好看。这是全新的，还未曾佩戴过。希望在换购网上换取毛衣吊坠，图案最好是动物的，萌宠优先。"
+	},
+	"ID10003": {
+		"proName": "闲置鳄鱼皮包",
+		"proImg": [
+			{
+				"imgUrl": "img/IMG_20170315_101954.jpg"
+			}
+		],
+		"proWant": "棒球帽",
+		"proPrice": "￥166",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www12.jpg",
+		"userName": "宝塔镇河妖",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-02-27",
+		"userWord": "双十一光棍节买到的这个复古链条小方包，外表美观，大小适中，适合大部分女生外出使用，物美价廉，非常好。这个包包是全新的，未曾使用。希望在购物网上换取春季适合带的棒球帽，棒球帽最好是天蓝色的，图案要具有卡通气息。"
+	},
+	"ID10004": {
+		"proName": "牛皮尖头高跟鞋",
+		"proImg": [
+			{
+				"imgUrl": "img/IMG_20170315_102026.jpg"
+			}, {
+				"imgUrl": "img/IMG_20170315_102026.jpg"
+			}
+		],
+		"proWant": "春季外穿风衣",
+		"proPrice": "￥99",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www13.jpg",
+		"userName": "么么有哒吗",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-02-27",
+		"userWord": "双十二在网上购取得粗跟浅口尖头新款女百搭单鞋，样式新颖，价格合适，比较好看，搭配衣物方便，美观优雅。这双鞋还没有穿过，新品。希望在换购网上交换到春季外穿风衣，颜色是咖啡色，号码最好是M号的，希望可以交换到。"
+	},
+	"ID10005": {
+		"proName": "日式文艺摆盘",
+		"proImg": [
+			{
+				"imgUrl": "img/IMG_20170315_102807.jpg"
+			}
+		],
+		"proWant": "水晶吊坠毛衣链",
+		"proPrice": "￥68",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www14.jpg",
+		"userName": "我还是宝宝",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-02-27",
+		"userWord": "在市场上淘到的日式手绘彩雪花创意餐具，品质优良，漂亮美观，物超所值。盘子很漂亮，包装也很仔细。我想要在换购网上换取春季毛衣相配的水晶吊坠毛衣链，希望吊坠的形状是小鹿形状的。希望可以如愿以偿。"
+	},
+	"ID10006": {
+		"proName": "胭脂红口红",
+		"proImg": [
+			{
+				"imgUrl": "img/IMG_20170315_102829.jpg"
+			}
+		],
+		"proWant": "浅棕色眉笔",
+		"proPrice": "￥66",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [],
+		"userImg": "img/www15.jpg",
+		"userName": "绘我绝世容颜",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-02-27",
+		"userWord": "过生日时，朋友送来的口红，特别润，不用涂唇膏，颜色还是不是相差很大但是一般是涂不出这种感觉的，没化妆，素颜很适合，有点偏甜美型。这支口红是全新的，外包装完好。这次把它放到换购网上，希望换到浅棕色眉笔，最好是全新的，可以交换。"
+	},
+	"ID3001": {
+		"proName": "翡翠手镯",
+		"proImg": [
+			{
+				"imgUrl": "img/2.png"
+			}, {
+				"imgUrl": "img/2.png"
+			}
+		],
+		"proWant": "翡翠戒指",
+		"proPrice": "￥349",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www1.jpg",
+		"userName": "看我昵称干嘛",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-04-23",
+		"userWord": "这个翡翠手镯是我上个月去云南旅游的时候买的，但是觉得戴着不太合适了，所以想在换购网换一个九成新的翡翠戒指,希望能成功换到。"
+	},
+	"ID3002": {
+		"proName": "复古牛皮粗跟鞋",
+		"proImg": [
+			{
+				"imgUrl": "img/1.png"
+			}, {
+				"imgUrl": "img/1.png"
+			}
+		],
+		"proWant": "尖头高跟鞋",
+		"proPrice": "￥249",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www2.jpg",
+		"userName": "就不告诉你我叫啥",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-04-13",
+		"userWord": "这双高跟鞋才入手没多长时间，是真皮的，穿着很舒服，由于自己想换个风格的鞋子试试，所以想换一双尖头高跟鞋，有合适的小仙女可以跟我换哦"
+	},
+	"ID3003": {
+		"proName": "迷彩外套",
+		"proImg": [
+			{
+				"imgUrl": "img/3.png"
+			}, {
+				"imgUrl": "img/3.png"
+			}
+		],
+		"proWant": "登山防晒服",
+		"proPrice": "￥149",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www3.jpg",
+		"userName": "共产主义接班人",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-04-23",
+		"userWord": "这个外套是我很喜欢的外套之一，有八成新，最近计划去登山，我有好几个登山迷彩，所以计划在换购网换一个登上防晒衣，我对防晒服的希望是最少是七成新的，希望可以换到合适的"
+	},
+	"ID40001": {
+		"proName": "家用便携式平底炒锅",
+		"proImg": [
+			{
+				"imgUrl": "img/4.png"
+			}, {
+				"imgUrl": "img/4.png"
+			}
+		],
+		"proWant": "实用型旅行保温杯",
+		"proPrice": "￥48",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"userImg": "img/www4.jpg",
+		"userName": "这个妞很靓",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-04-03",
+		"userWord": "外出路过家电商城的时候买来的这个家用便携式平底炒锅，价格优惠，很好用，拿来炒饭炒菜很棒，这个炒锅买来后，用过几次，七成新。现在把它拿到换购网上，是希望交换到一个实用型旅游用的保温杯，希望该保温杯是淡色系的，大小中等，方便出行携带的物件，等出去旅游的时候可以使用，希望能够成功地交换到。"
+	},
+	"ID40002": {
+		"proName": "花样摆盘餐具套件",
+		"proImg": [
+			{
+				"imgUrl": "img/5.png"
+			}, {
+				"imgUrl": "img/5.png"
+			}
+		],
+		"proWant": "夏用遮阳伞",
+		"proPrice": "￥66",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"userImg": "img/www5.jpg",
+		"userName": "被智慧撑大脸的美少女",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-03-23",
+		"userWord": "在外旅游时买回来的小物件，这款花样摆盘餐具套件很漂亮，比较实惠。当时买来很多套，除了送给朋友们，自己留了两套，有一套正在使用中，现在把这套全新的餐具套件放到换购网上，把好东西分享给大家。此外，希望换取到一把夏用的遮阳伞，最好是淡紫色的，实用就好，谢谢！"
+	},
+	"ID40003": {
+		"proName": "男式家用凉拖",
+		"proImg": [
+			{
+				"imgUrl": "img/7.png"
+			}, {
+				"imgUrl": "img/7.png"
+			}
+		],
+		"proWant": "鼠标垫",
+		"proPrice": "￥22",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www6.jpg",
+		"userName": "哀家困了",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-04-23",
+		"userWord": "在商店里给老公买的这双家用凉拖鞋，外观漂亮，实惠，价格合适，很不错的东西。当时因为担心这个拖鞋的质量问题，所以买了两双，后来才发现它的质量真的很不错，特别棒。所以现在把这双全新的家用凉拖拿到换购网上来进行交换。希望可以交换到一个鼠标垫，图案最好是HelloKitty，有次看到过这样的鼠标垫，感觉超萌，希望可以交换到。"
+	},
+	"ID20001": {
+		"proName": "红色大白亲子装",
+		"proImg": [
+			{
+				"imgUrl": "img/6.png"
+			}, {
+				"imgUrl": "img/6.png"
+			}
+		],
+		"proWant": "手绘雪花陶瓷餐具",
+		"proPrice": "￥300",
+		"proWatched": "368",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"userImg": "img/www7.jpg",
+		"userName": "小新",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-04-27",
+		"userWord": "月初刚刚买的，但是宝宝不喜欢红色，一次都没有穿过，想换购一套手绘雪花陶瓷餐具"
+	},
+	"ID20002": {
+		"proName": "清新凉拖",
+		"proImg": [
+			{
+				"imgUrl": "img/8.png"
+			}
+		],
+		"proWant": "亲子装",
+		"proPrice": "￥100",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"userImg": "img/www8.jpg",
+		"userName": "穿婚纱的小希",
+		"userAddress": "双滦区",
+		"onlineTime": "2017-03-07",
+		"userWord": "逛街时候看到好看就买下了好几双，还有余下的2双穿不到，都是全新的，小清新的款式，满满的少女心。"
+	},
+	"ID20003": {
+		"proName": "蓝色亲子装",
+		"proImg": [
+			{
+				"imgUrl": "img/12.png"
+			}
+		],
+		"proWant": "拖鞋",
+		"proPrice": "￥200",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www9.jpg",
+		"userName": "兔子的耳朵",
+		"userAddress": "承德县",
+		"onlineTime": "2017-04-20",
+		"userWord": "年假的时候带孩子旅游时候，孩子很喜欢衣服上的小企鹅，就买下了这一套，天气越来越暖和了，孩子等明年长高的时候就穿不下了，还没有穿过几次放着太可惜了，萌萌的小企鹅不能被闲置~~。"
+	},
+	"ID20004": {
+		"proName": "红色皮包",
+		"proImg": [
+			{
+				"imgUrl": "img/13.png"
+			}, {
+				"imgUrl": "img/13.png"
+			}
+		],
+		"proWant": "双肩包",
+		"proPrice": "￥800",
+		"proWatched": "258",
+		"userVoice": "none",
+		"proStar": [
+			{
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}, {
+				"star": "star"
+			}
+		],
+		"proUnStar": [
+			{
+				"star": "star"
+			}
+		],
+		"userImg": "img/www10.jpg",
+		"userName": "傻妞",
+		"userAddress": "双桥区",
+		"onlineTime": "2017-02-01",
+		"userWord": "和朋友出国游的时候和朋友一起买的，因为是单肩背包总是滑肩，买了才3个月，八成新扔了太可惜了，所以想换一个双肩包来背。"
+	}
+}

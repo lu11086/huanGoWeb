@@ -1,0 +1,149 @@
+body{
+	background: white;
+}
+
+.fabu_bc{
+	background-color: white;
+}
+
+.fabu_List{
+	list-style: none;
+	height: 6rem;
+	overflow: hidden;
+	border-bottom: 1px solid lightgrey;
+}
+
+.myFaBu{
+	padding: 0.5rem;
+}
+
+.fabu_left{
+	float: left;
+	margin-right: 0.5rem;
+	width: 8rem;
+	height: 5rem;
+	overflow: hidden;
+}
+.fabu_left img{
+	width: 100%;
+}
+.fabu_right{
+	padding-top: 0.5rem;
+	height: 5rem;
+	text-align: left;
+}
+.fabu_right p{
+	line-height: 1rem;
+}
+.fabu_mui_nav{
+	background-color: #4CCFC7;
+}
+.fabu_mui_title , .mui-pull-left{
+	color: white;
+}
+.clear{
+	clear: left;
+}
+
+.fontInIcon{
+	font-size: 0.9rem;
+}
+
+.yc{
+	border-radius: 0.7rem;
+	background-color: #5AF0E8;
+	border: none;
+	color: white;
+}
+
+.scrollTab{
+	width: 100%;
+	height: 2.5rem;
+	background-color: #2AC4BB;
+}
+
+.scrollTab .mui-row-cell span{
+	display: block;
+	width: 100%;
+	height: 2.5rem;
+	text-align: center;
+	line-height: 2.5rem;
+	color: white;
+}
+
+.scrollTab1{
+	background: #4CCFC7;
+}
+
+.scrollTab3{
+	background: #ca203b;
+}
+
+/*动态页面*/
+
+.dt_title_pic img{
+	width: 100%;
+	height: 100%;
+}
+.dt_title_name{
+	text-align: left;
+	/*padding: 0.3rem;*/
+	padding-top: 0.5rem;
+	padding-left: 0.3rem ;
+}
+.dt_title_name p{
+	line-height: 1rem;
+	
+}
+.dt_title_hf{
+	text-align: center;
+	margin-top:0.7rem ;
+	font-size: 0.9rem;
+}
+.dt_pl{
+	background-color: white;
+	text-align: left;
+	padding: 0.2rem;
+	color: black;
+}
+.dt_title_name_color{
+	color: black;
+}
+.dt_left , .dt_right{
+	float: left;
+}
+.clear{
+	clear: left;
+}
+.dt_left{
+	width: 25%;
+	/*border: 1px solid red;*/
+	height: 3.6rem;
+}
+.dt_right{
+	width: 75%;
+	/*border: 1px solid green;*/
+	height: 3.6rem;
+}
+.dt_content{
+	/*border: 1px solid blue;*/
+	width: 95%;
+	margin: auto;
+	/*background-color: white;*/
+}
+.dt_left img{
+	width: 100%;
+	height: 100%;
+}
+.dt_right p{
+	line-height: 0.6rem;
+	font-size: 0.9rem;
+	text-align: left;
+	padding-left: 0.3rem;
+	
+}
+.reply{
+	background-color: white;
+	text-align: left;
+	padding: 0.3rem;
+}

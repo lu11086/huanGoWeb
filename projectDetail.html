@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/projectDetail.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/imgView.css" />
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.plusReady(function() {
+				var html = document.documentElement;
+				var self = plus.webview.currentWebview();
+				var theFontSize = self.fontsize;
+				html.style.fontSize = theFontSize;
+
+				/*获取并定义商品图片部分的宽度与高度*/
+				var fSize = parseInt(theFontSize);
+				var ImgWidth = html.clientWidth - 3 * fSize;
+				var style = document.createElement('style');
+				style.innerHTML = '#myContent{display:block;}.projectImg{width:' + ImgWidth + 'px;height:' + ImgWidth * 0.625 + 'px;}.mui-slider-indicator{background:rgba(136,135,135,0.8);bottom:0;top:' + ImgWidth * 0.57 + 'px;}';
+				document.getElementsByTagName('head').item(0).appendChild(style);
+			})
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title"></h1>
+		</header>
+		<div class="mui-content" id="myContent">
+			<div class="pic_detail">
+				<div class="detail">
+					图片详情
+				</div>
+
+				<div class="mui-slider projectImg">
+					<div class="mui-slider-group">
+						<div class="mui-slider-item" v-for="el in proImg">
+							<a href="#"><img :src="el.imgUrl" data-preview-src="" data-preview-group="1" /></a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator" v-for="el in proImg"></div>
+					</div>
+				</div>
+				<div class="pic_top">
+					<div class="pic_left">
+						<span class="mui-icon iconfont icon-xing star"></span>
+						<span class="star-left">最想交换</span>
+
+					</div>
+					<div class="pic_right pic_top_r" v-text="proWant">
+					</div>
+					<div class="clear">
+
+					</div>
+				</div>
+				<div class="pic_bot">
+					<div class="pic_left pic_bot_L">
+						<s>原购买价格：<span v-text="proPrice"></span></s>
+					</div>
+					<div class="pic_right pic_bot_r">
+						浏览次数：<span v-text="proWatched"></span>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<button class="btn" :title="userVoice">
+	    			<span class="mui-icon iconfont icon-yuyin voice"></span>
+	    		</button>
+			</div>
+			<div class="detail_star">
+				<div class="detail_star_L">
+					详细信息
+				</div>
+				<div class="detail_star_R">
+					<span class="mui-icon iconfont icon-shoucangfill pingfen" v-for="el in proStar"></span>
+					<span class="mui-icon iconfont icon-shoucang pingfen" v-for="el in proUnStar"></span>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<div class="mui-card projectDetail">
+				<div class="mui-card-header">
+					<div class="mui-card-header mui-card-media mui-user-content">
+						<div class="userImg">
+							<img :src="userImg" />
+						</div>
+						<div class="mui-user-infor">
+							<span v-text="userName"></span>
+							<p>地点：<span v-text="userAddress"></span></p>
+						</div>
+						<div class="detail_timer" :title="onlineTime"></div>
+						<div class="clear"></div>
+					</div>
+					<div class="detail_content">
+						<p v-text="proName"></p>
+						<p v-text="userWord"></p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<footer class="myNav">
+			<button class="myDetailButton myHuanGo" id="myHuanGo">
+				<span class="mui-icon mui-icon-paperplane"id="myHuanGoIcon"></span>
+				<span class="mui-tab-label" id="myHuanGoSpan">进行换购</span>
+			</button>
+			<button class="myDetailButton myCollect" id="myCollect">
+				<span class="mui-icon iconfont icon-shoucang2" id="myCollectStar"></span>
+				<span class="mui-tab-label" id="myCollectSpan">收藏</span>
+			</button>
+		</footer>
+
+	</body>
+	<script type="text/javascript" src="js/vue2.js"></script>
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+	<script type="text/javascript">
+		changeBarHeight();
+
+		var vm = new Vue({
+			el: '#myContent',
+			data: {
+				proName: "none",
+				proImg: [],
+				proWant: "none",
+				proPrice: "none",
+				proWatched: "none",
+				userVoice: "none",
+				proStar: [],
+				proUnStar: [],
+				userImg: "none",
+				userName: "none",
+				userAddress: "none",
+				onlineTime: "none",
+				userWord: "none",
+				userInfor: []
+			}
+		});
+
+		mui.plusReady(function() {
+			var html = document.documentElement;
+			var self = plus.webview.currentWebview();
+			var projectid = self.myID;
+
+			mui.getJSON("data/allTheProject.json", function(data) {
+				if(!data[projectid]) {
+					var myLocalPro = JSON.parse(localStorage.getItem("myProObjs"));
+					data[projectid] = myLocalPro[projectid];
+				}
+				/*console.log(JSON.stringify(data[projectid]));*/
+				vm.proName = data[projectid].proName;
+				vm.proImg = data[projectid].proImg;
+				vm.proWant = data[projectid].proWant;
+				vm.proPrice = data[projectid].proPrice;
+				vm.proWatched = data[projectid].proWatched;
+				vm.userVoice = data[projectid].userVoice;
+				vm.proStar = data[projectid].proStar;
+				vm.proUnStar = data[projectid].proUnStar;
+				if(data[projectid].userImg) {
+					vm.userImg = data[projectid].userImg;
+					vm.userName = data[projectid].userName;
+				} else {
+					var myUserID = JSON.parse(data[projectid].userID);
+					var myLocalUser = JSON.parse(localStorage.getItem("localUser"));
+					vm.userImg = myLocalUser[myUserID].userImg;
+					vm.userName = myLocalUser[myUserID].userName;
+				}
+				vm.userAddress = data[projectid].userAddress;
+				vm.onlineTime = data[projectid].onlineTime;
+				vm.userWord = data[projectid].userWord;
+
+				vm.$nextTick(function() {
+					mui.previewImage();
+
+					var gallery = mui('.mui-slider');
+					gallery.slider({
+						interval: 0
+					});
+					mui(".mui-title")[0].innerText = vm.proName;
+					/*console.log(JSON.stringify(vm.proStar));*/
+					var sliderPoint = document.querySelector('.mui-indicator');
+					sliderPoint.className = 'mui-indicator mui-active';
+
+					/*底栏小按钮*/
+					var ifHuanGo = false;
+					var ifCollect = false;
+					var myLoginInfor = JSON.parse(localStorage.getItem("ifLogined"));
+					if(myLoginInfor != "admin") {
+						var myLocalUser = JSON.parse(localStorage.getItem("localUser"));
+						vm.userInfor = myLocalUser[myLoginInfor];
+						for(i in vm.userInfor.HistoryInfor) {
+							if(vm.userInfor.HistoryInfor[i].projectID == projectid) {
+								document.getElementById("myHuanGoIcon").setAttribute("class", "mui-icon mui-icon-checkmarkempty");
+								document.getElementById("myHuanGoSpan").innerText = "正在换购";
+								ifHuanGo = true;
+							}
+						}
+						for(i in vm.userInfor.collectInfor) {
+							if(vm.userInfor.collectInfor[i].projectID == projectid) {
+								document.getElementById("myCollectStar").setAttribute("class", "mui-icon iconfont icon-shoucang1");
+								document.getElementById("myCollectSpan").innerText = "已收藏";
+								ifCollect = true;
+							}
+						}
+					}
+
+					var myfontsize = document.documentElement.style.fontSize;
+					document.getElementById("myHuanGo").addEventListener("tap", function() {
+						var ifLogined = localStorage.getItem("ifLogined");
+						if(!ifLogined) {
+							mui.toast("请先登录！");
+							mui.openWindow({
+								url: "sub5denglu.html",
+								id: "sub5denglu.html",
+								extras: {
+									fontsize: theFontSize
+								}
+							});
+						} else if(ifLogined == '"admin"') {
+							mui.toast("超级管理员用户无换购功能，请更换账户");
+						} else {
+							/*var myLoginInfor = JSON.parse(localStorage.getItem("ifLogined"));*/
+							mui.getJSON("data/adminUser.json", function(data) {
+								if(!data[myLoginInfor]) {
+									/*var myLocalUser = JSON.parse(localStorage.getItem("localUser"));*/
+									data[myLoginInfor] = myLocalUser[myLoginInfor];
+								}
+								vm.userInfor = data[myLoginInfor];
+								var newLocalUser = JSON.parse(localStorage.getItem("localUser"));
+								var proList = {
+									"HistoryInfor": [],
+									"collectInfor": []
+								};
+								if(!ifHuanGo) {
+									if(!JSON.stringify(newLocalUser[myLoginInfor].HistoryInfor)) {
+										proList.HistoryInfor.push(newLocalUser[myLoginInfor].HistoryInfor);
+									} else {
+										for(i in vm.userInfor.HistoryInfor) {
+											proList.HistoryInfor.push({
+												"projectID": vm.userInfor.HistoryInfor[i].projectID
+											});
+										}
+									}
+									proList.HistoryInfor.push({
+										"projectID": projectid
+									});
+									Vue.set(vm.userInfor, 'HistoryInfor', proList.HistoryInfor);
+									newLocalUser[myLoginInfor] = vm.userInfor;
+									localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+
+									document.getElementById("myHuanGoIcon").setAttribute("class", "mui-icon mui-icon-checkmarkempty");
+									document.getElementById("myHuanGoSpan").innerText = "正在换购";
+									ifHuanGo = true;
+									mui.toast("消息已发送！请耐心等候");
+								} else {
+									for(i in vm.userInfor.HistoryInfor) {
+										if(vm.userInfor.HistoryInfor[i].projectID != projectid) {
+											proList.HistoryInfor.push({
+												"projectID": vm.userInfor.HistoryInfor[i].projectID
+											});
+										}
+									}
+									Vue.set(vm.userInfor, 'HistoryInfor', proList.HistoryInfor);
+									newLocalUser[myLoginInfor] = vm.userInfor;
+									localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+
+									document.getElementById("myHuanGoIcon").setAttribute("class", "mui-icon mui-icon-paperplane");
+									document.getElementById("myHuanGoSpan").innerText = "进行换购";
+									ifHuanGo = false;
+									mui.toast("已取消换购！")
+								};
+							})
+							if(plus.webview.getWebviewById('sub5loginedTab3.html')) {
+								var main = plus.webview.getWebviewById('sub5loginedTab3.html');
+								mui.fire(main, "pageflowrefresh");
+								mui.back()
+							}
+						}
+					})
+
+					document.getElementById("myCollect").addEventListener("tap", function() {
+						var ifLogined = localStorage.getItem("ifLogined");
+						if(!ifLogined) {
+							mui.toast("请先登录！");
+							mui.openWindow({
+								url: "sub5denglu.html",
+								id: "sub5denglu.html",
+								extras: {
+									fontsize: theFontSize
+								}
+							});
+						} else if(ifLogined == '"admin"') {
+							mui.toast("超级管理员用户无收藏功能，请更换账户");
+						} else {
+							mui.getJSON("data/adminUser.json", function(data) {
+								if(!data[myLoginInfor]) {
+									data[myLoginInfor] = myLocalUser[myLoginInfor];
+								}
+								vm.userInfor = data[myLoginInfor];
+								var newLocalUser = JSON.parse(localStorage.getItem("localUser"));
+								var proList = {
+									"collectInfor": []
+								};
+								if(!ifCollect) {
+									if(!JSON.stringify(newLocalUser[myLoginInfor].collectInfor)) {
+										proList.collectInfor.push(newLocalUser[myLoginInfor].collectInfor);
+									} else {
+										for(i in vm.userInfor.collectInfor) {
+											proList.collectInfor.push({
+												"projectID": vm.userInfor.collectInfor[i].projectID
+											});
+										}
+									}
+									proList.collectInfor.push({
+										"projectID": projectid
+									});
+									Vue.set(vm.userInfor, 'collectInfor', proList.collectInfor);
+									newLocalUser[myLoginInfor] = vm.userInfor;
+									localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+
+									document.getElementById("myCollectStar").setAttribute("class", "mui-icon iconfont icon-shoucang1");
+									document.getElementById("myCollectSpan").innerText = "已收藏";
+									ifCollect = true;
+									mui.toast("收藏成功！")
+								} else {
+
+									for(i in vm.userInfor.collectInfor) {
+										if(vm.userInfor.collectInfor[i].projectID != projectid) {
+											proList.collectInfor.push({
+												"projectID": vm.userInfor.collectInfor[i].projectID
+											});
+										}
+									}
+									Vue.set(vm.userInfor, 'collectInfor', proList.collectInfor);
+									newLocalUser[myLoginInfor] = vm.userInfor;
+									localStorage.setItem("localUser", JSON.stringify(newLocalUser));
+
+									document.getElementById("myCollectStar").setAttribute("class", "mui-icon iconfont icon-shoucang2");
+									document.getElementById("myCollectSpan").innerText = "收藏";
+									ifCollect = false;
+									mui.toast("取消收藏成功！")
+								};
+							})
+							if(plus.webview.getWebviewById('sub5loginedTab4.html')) {
+								var main = plus.webview.getWebviewById('sub5loginedTab4.html');
+								mui.fire(main, "pageflowrefresh");
+								mui.back()
+							}
+							/*location.reload()*/
+						}
+					})
+
+					/*获取当前日期*/
+					var date = new Date();
+					var seperator = "-";
+					var strYear = date.getFullYear();
+					var strMonth = date.getMonth() + 1;
+					var strDate = date.getDate();
+					if(strMonth >= 1 && strMonth <= 9) {
+						strMonth = "0" + strMonth;
+					}
+					if(strDate >= 0 && strDate <= 9) {
+						strDate = "0" + strDate;
+					}
+					var whichDay = strYear + seperator + strMonth + seperator + strDate;
+
+					var getTheDay = document.querySelector('.detail_timer');
+					/*判断是否为今天发布/N年前发布/N月前发布/N天前发布*/
+					if(getTheDay.getAttribute('title') == whichDay) {
+						getTheDay.innerText = "今天";
+					} else {
+						var str = getTheDay.getAttribute('title');
+						var arr = str.split("-");
+						if(arr[0] != strYear) {
+							var ago = strYear - arr[0];
+							getTheDay.innerHTML = ago + "年前发布";
+						} else if(arr[1] != strMonth) {
+							var ago = strMonth - arr[1];
+							getTheDay.innerHTML = ago + "月前发布";
+						} else {
+							var ago = strDate - arr[2];
+							getTheDay.innerHTML = ago + "天前发布";
+						}
+					}
+				})
+			})
+		});
+	</script>
+
+</html>

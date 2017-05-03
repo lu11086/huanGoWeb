@@ -1,0 +1,54 @@
+{
+	"flag": "1",
+	"message": "数据获取成功",
+	"stratImg": "img/9.jpg",
+	"imgList": [
+		{
+			"imgUrl": "img/9.jpg"
+		}, {
+			"imgUrl": "img/10.jpg"
+		}, {
+			"imgUrl": "img/11.jpg"
+		}, {
+			"imgUrl": "img/TB1rOUFPVXXXXXVapXXSutbFXXX.jpg"
+		}
+	],
+	"endImg":"img/TB1rOUFPVXXXXXVapXXSutbFXXX.jpg",
+	"proList":[
+		{
+			"modelName":"最新发布",
+			"firstProNum":"ID3001",
+			"firstProImg":"img/2.png",
+			"firstProDegrees":"全新",
+			"secondProNum":"ID3002",
+			"secondProImg":"img/1.png",
+			"secondProDegrees":"全新",
+			"thirdProNum":"ID3003",
+			"thirdProImg":"img/3.png",
+			"thirdProDegrees":"全新",
+			"fourthProNum":"ID40001",
+			"fourthProImg":"img/4.png",
+			"fourthProDegrees":"九成新",
+			"fifthProNum":"ID40002",
+			"fifthProImg":"img/5.png",
+			"fifthProDegrees":"八成新"
+		},{
+			"modelName":"最新换购",
+			"firstProNum":"ID40003",
+			"firstProImg":"img/7.png",
+			"firstProDegrees":"全新",
+			"secondProNum":"ID20001",
+			"secondProImg":"img/6.png",
+			"secondProDegrees":"全新",
+			"thirdProNum":"ID20002",
+			"thirdProImg":"img/8.png",
+			"thirdProDegrees":"全新",
+			"fourthProNum":"ID20003",
+			"fourthProImg":"img/12.png",
+			"fourthProDegrees":"七成新",
+			"fifthProNum":"ID20004",
+			"fifthProImg":"img/13.png",
+			"fifthProDegrees":"八成新"
+		}
+	]
+}

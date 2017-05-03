@@ -1,0 +1,56 @@
+
+@font-face {font-family: "iconfont";
+  font-weight: normal;
+    font-style: normal;
+    src:  url('../fonts/iconfont.ttf') format('truetype'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size: 1rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-camera:before { content: "\e63d"; }
+
+.icon-saoyisao:before { content: "\e610"; }
+
+.icon-pinglun:before { content: "\e621"; }
+
+.icon-wode:before { content: "\e66d"; }
+
+.icon-liwu:before { content: "\e647"; }
+
+.icon-icon-site:before { content: "\e600"; }
+
+.icon-xinfeng:before { content: "\e664"; }
+
+.icon-publish:before { content: "\e611"; }
+
+.icon-shoucang:before { content: "\e666"; }
+
+.icon-shoucangfill:before { content: "\e6c9"; }
+
+.icon-shoucangshoucang:before { content: "\e604"; }
+
+.icon-yuyin:before { content: "\e606"; }
+
+.icon-comiispengyouquan:before { content: "\e68f"; }
+
+.icon-gouwuche-copy:before { content: "\e607"; }
+
+.icon-zan:before { content: "\e622"; }
+
+.icon-zan1:before { content: "\e612"; }
+
+.icon-xing:before { content: "\e8fe"; }
+
+.icon-shoucang1:before { content: "\e86d"; }
+
+.icon-shoucang2:before { content: "\e86e"; }
+
+.icon-shu:before { content: "\e6c6"; }
+
+.icon-jiu:before { content: "\e65e"; }
